@@ -3,8 +3,16 @@ package com.trendyol.cart.model.shop
 import com.trendyol.cart.model.discount.Campaign
 import com.trendyol.cart.model.product.Product
 
+/**
+ * Product with quantity in cart
+ * @param product product to be purchased
+ * @param quantity Product count
+ */
 class CartItem(private val product: Product, val quantity: Int) {
 
+    /**
+     * Calculates most discount rate of all campaigns corresponding to the product
+     */
     private fun bestCampaign(): Campaign? = product.getAllCampaigns()
             .stream()
             // Descending sort
@@ -15,8 +23,14 @@ class CartItem(private val product: Product, val quantity: Int) {
             .findFirst()
             .get()
 
+    /**
+     * Calculates total amount of chart item
+     */
     fun totalAmount() = product.price * quantity
 
+    /**
+     * Calculates total discount of chart item
+     */
     fun totalDiscount(): Double {
         val bestCampaign : Campaign? = bestCampaign()
         if (bestCampaign != null) {
@@ -25,15 +39,20 @@ class CartItem(private val product: Product, val quantity: Int) {
         return 0.0
     }
 
+    /**
+     * Printing Chart Item
+     */
     override fun toString(): String {
         val totalAmount =  totalAmount()
         val totalDiscount =  totalDiscount()
+        val percentage = (100 * totalDiscount / totalAmount).toInt()
         val totalPrice =  totalAmount - totalDiscount
 
         return "Product: " + product.title +
+                ", Price: " + product.price +
                 ", Quantity: " + quantity +
-                ", Total Price: " + totalAmount +
-                ", Total Discount: " + totalDiscount +
-                ", Total Price With Discount: " + totalPrice
+                ", Total Price: $totalAmount" +
+                ", Total Discount: $totalDiscount (%$percentage)" +
+                ", Total Price With Discount: $totalPrice"
     }
 }

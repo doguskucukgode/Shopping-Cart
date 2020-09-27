@@ -25,7 +25,6 @@ class Shopping : CommandLineRunner {
     }
 
     fun main(args: Array<out String?>) {
-
         // Define campaigns
         val foodCampaign1 = Campaign(20, 10)
         val foodCampaign2 = Campaign(30, 50)
@@ -38,8 +37,8 @@ class Shopping : CommandLineRunner {
         val coupon2 = Coupon(15, 250.0);
 
         // Define DeliveryCost
-        val delivery1 = DeliveryCost(deliveryFee = 3.0, productItemFee = 2.0)
-        val delivery2 = DeliveryCost(deliveryFee = 5.0, productItemFee = 4.0)
+        val delivery1 = DeliveryCost(deliveryFee = 0.1, productItemFee = 0.4)
+        val delivery2 = DeliveryCost(deliveryFee = 0.2, productItemFee = 0.6)
 
         // Define categories
         val foodCategory = Category(title = "food", campaigns = listOf(foodCampaign1, foodCampaign2))
@@ -53,7 +52,7 @@ class Shopping : CommandLineRunner {
         // Define Cart Items
         val appleCartItem1 = CartItem(apple, 10);
         val pepperCartItem1 = CartItem(pepper, 20);
-        val appleCartItem2 = CartItem(apple, 30);
+        val appleCartItem2 = CartItem(apple, 50);
         val pepperCartItem2 = CartItem(pepper, 40);
 
         // Define Carts
@@ -64,6 +63,5 @@ class Shopping : CommandLineRunner {
         println(cart2)
 
         SpringApplication.exit(appContext, ExitCodeGenerator { 0 })
-
     }
 }
