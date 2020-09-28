@@ -8,12 +8,12 @@ import com.trendyol.cart.model.product.Product
  * @param product product to be purchased
  * @param quantity Product count
  */
-class CartItem(private val product: Product, val quantity: Int) {
+class CartItem(private val product: Product, var quantity: Int = 1) {
 
     /**
      * Calculates most discount rate of all campaigns corresponding to the product
      */
-    private fun bestCampaign(): Campaign? = product.getAllCampaigns()
+    fun bestCampaign(): Campaign? = product.getAllCampaigns()
             .stream()
             // Descending sort
             .sorted { o1, o2 ->

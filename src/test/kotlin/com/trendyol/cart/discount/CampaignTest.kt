@@ -3,6 +3,8 @@ package com.trendyol.cart.discount
 import com.trendyol.cart.model.discount.Campaign
 import com.trendyol.cart.model.discount.Discount
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -21,13 +23,13 @@ class CampaignTest {
     @Test
     fun givenMinChartValueBiggerWhenIsApplicableThenAssertTrue() {
         val result = campaign.isApplicable(MIN_PRODUCT_COUNT + 5)
-        assertEquals(true, result)
+        assertTrue(result)
     }
 
     @Test
     fun givenMinChartValueSmallerWhenIsApplicableThenAssertTrue() {
         val result = campaign.isApplicable(MIN_PRODUCT_COUNT - 5)
-        assertEquals(false, result)
+        assertFalse(result)
     }
 
     @Test

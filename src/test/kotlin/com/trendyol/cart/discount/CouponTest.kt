@@ -1,12 +1,10 @@
 package com.trendyol.cart.discount
 
-import org.junit.jupiter.api.Assertions.assertEquals
 import com.trendyol.cart.model.discount.Coupon
 import com.trendyol.cart.model.discount.Discount
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.extension.ExtendWith
-import org.mockito.junit.jupiter.MockitoExtension
 
 class CouponTest {
 
@@ -23,13 +21,13 @@ class CouponTest {
     @Test
     fun givenMinChartValueBiggerWhenIsApplicableThenAssertTrue() {
         val result = coupon.isApplicable(MIN_CART_VALUE + 50)
-        assertEquals(true, result)
+        assertTrue(result)
     }
 
     @Test
     fun givenMinChartValueSmallerWhenIsApplicableThenAssertTrue() {
         val result = coupon.isApplicable(MIN_CART_VALUE - 50)
-        assertEquals(false, result)
+        assertFalse(result)
     }
 
     @Test
