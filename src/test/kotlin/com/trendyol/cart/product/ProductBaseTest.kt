@@ -12,21 +12,21 @@ open class ProductBaseTest {
     private val CATEGORY_NAME4 = "Category4"
     private val PRODUCT_PRICE1 = 200.0
     private val PRODUCT_PRICE2 = 50.0
-    protected val PRODUCT_NAME1 = "Product1"
-    protected val PRODUCT_NAME2 = "Product2"
+    private val PRODUCT_NAME1 = "Product1"
+    private val PRODUCT_NAME2 = "Product2"
 
     // Categories
     protected lateinit var category1: Category
     protected lateinit var category2: Category
-    protected lateinit var category3: Category
-    protected lateinit var category4: Category
+    private lateinit var category3: Category
+    private lateinit var category4: Category
     // Campaigns
     protected lateinit var campaign1: Campaign
     protected lateinit var campaign2: Campaign
     protected lateinit var campaign3: Campaign
-    protected lateinit var campaign4: Campaign
-    protected lateinit var campaign5: Campaign
-    protected lateinit var campaign6: Campaign
+    private lateinit var campaign4: Campaign
+    private lateinit var campaign5: Campaign
+    private lateinit var campaign6: Campaign
 
     fun sampleProduct1(): Product {
         category1 = Category(title = CATEGORY_NAME1)

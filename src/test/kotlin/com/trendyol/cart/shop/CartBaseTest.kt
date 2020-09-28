@@ -23,9 +23,9 @@ open class CartBaseTest : ProductBaseTest() {
     }
 
     fun sampleCouponList() : List<Coupon> {
-        coupon1 = Coupon(discountPercentage = 10, minCartValue = 2500.0)
-        coupon2 = Coupon(discountPercentage = 15, minCartValue = 5000.0)
-        coupon3 = Coupon(discountPercentage = 20, minCartValue = 7500.0)
+        coupon1 = Coupon(discountPercentage = 10, minCartValue = 15000.0)
+        coupon2 = Coupon(discountPercentage = 15, minCartValue = 30000.0)
+        coupon3 = Coupon(discountPercentage = 20, minCartValue = 40000.0)
         return listOf(coupon1, coupon2, coupon3)
     }
 
