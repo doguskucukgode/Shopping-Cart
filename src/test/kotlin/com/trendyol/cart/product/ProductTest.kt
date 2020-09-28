@@ -8,6 +8,7 @@ import org.junit.jupiter.api.assertAll
 
 class ProductTest : ProductBaseTest() {
 
+    private val PRODUCT = "PRODUCT"
     private lateinit var product: Product
 
     @BeforeEach
@@ -20,7 +21,7 @@ class ProductTest : ProductBaseTest() {
         // Arrange And Act
         val result = product.getAllCampaigns()
         // Assert
-        assertAll(PRODUCT_NAME,
+        assertAll(PRODUCT,
                 { assertEquals(2, result.size) },
                 { assertEquals(campaign1, result[0])})
     }
@@ -32,7 +33,7 @@ class ProductTest : ProductBaseTest() {
         // Act
         val result = product.getAllCampaigns()
         // Assert
-        assertAll(PRODUCT_NAME,
+        assertAll(PRODUCT,
                 { assertEquals(3, result.size) },
                 { assertEquals(campaign3, result[2])})
     }

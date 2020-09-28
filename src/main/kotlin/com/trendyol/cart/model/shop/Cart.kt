@@ -13,27 +13,28 @@ class Cart(var cartItems: List<CartItem> = ArrayList(), var coupons: List<Discou
     /**
      * Calculates all carts with campaign discounts without coupon discount
      */
-    private fun calculateCartItems() = cartItems.stream()
+    fun calculateCartItems() = cartItems.stream()
             .mapToDouble { i -> i.totalAmount() - i.totalDiscount() }
             .sum()
 
     /**
      * Calculates most discount rate of all coupons corresponding to the cart amount
      */
-    private fun bestCoupon(totalDiscountedPrice: Double): Discount? =
+    fun bestCoupon(totalDiscountedPrice: Double): Discount? =
         coupons.stream()
+                .filter{c -> c.isApplicable(totalDiscountedPrice)}
                 // Descending sort
                 .sorted { o1, o2 ->
                     o2.calculateDiscount(totalDiscountedPrice)
                             .compareTo(o1.calculateDiscount(totalDiscountedPrice))
                 }
                 .findFirst()
-                .get()
+                .orElse(null)
 
     /**
      * Calculates coupon discount
      */
-    private fun couponDiscount(): Double {
+    fun couponDiscount(): Double {
         val cartItemsPrice = calculateCartItems()
         val bestCoupon : Discount? = bestCoupon(cartItemsPrice)
         if (bestCoupon != null) {
@@ -64,7 +65,7 @@ class Cart(var cartItems: List<CartItem> = ArrayList(), var coupons: List<Discou
     /**
      * Calculates delivery fee with respect to chart item count and product count
      */
-    private fun deliveryFee(): Double {
+    fun deliveryFee(): Double {
         return deliveryCost.deliveryPrice(deliveryCount = cartItems.size, productItemCount = cartItems
                 .stream()
                 .mapToInt{c -> c.quantity}

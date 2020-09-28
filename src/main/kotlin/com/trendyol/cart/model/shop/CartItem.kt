@@ -15,13 +15,14 @@ class CartItem(private val product: Product, var quantity: Int = 1) {
      */
     fun bestCampaign(): Campaign? = product.getAllCampaigns()
             .stream()
+            .filter{ c -> c.isApplicable(quantity) }
             // Descending sort
             .sorted { o1, o2 ->
                 o2.calculateDiscount(quantity)
                         .compareTo(o1.calculateDiscount(quantity))
             }
             .findFirst()
-            .get()
+            .orElse(null)
 
     /**
      * Calculates total amount of chart item
