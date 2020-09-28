@@ -8,4 +8,4 @@ import com.trendyol.cart.model.discount.Campaign
  * @param parentCategory upper category
  * @param campaigns List of campaigns for category
  */
-data class Category (var title: String, val parentCategory: Category? = null, var campaigns: List<Campaign> = ArrayList())
+data class Category (var title: String, var parentCategory: Category? = null, var campaigns: List<Campaign> = ArrayList())
