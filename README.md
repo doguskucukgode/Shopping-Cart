@@ -5,7 +5,8 @@ E-Comerce shopping card delivery cost calculator. This is a SpringBoot Kotlin Pr
 `gradle clean build bootRun`
 ## Running with docker
 `docker-compose up`
-
+## Circle CI
+Project is configured with Circle CI from  [this link](https://app.circleci.com/pipelines/github/doguskucukgode/Shopping-Cart?branch=master) 
 ### Sample Output
 ```
 Product List:
