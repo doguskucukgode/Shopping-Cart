@@ -1,4 +1,4 @@
-package com.trendyol.cart.model.main
+package com.trendyol.cart.main
 
 import com.trendyol.cart.model.discount.Campaign
 import com.trendyol.cart.model.discount.Coupon
